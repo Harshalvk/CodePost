@@ -1,0 +1,84 @@
+---
+title: "Learn Prisma in 2024"
+publishedAt: "2024-10-12"
+summary: "Learn prisma, to write and manage your SQL quries."
+category: "backend"
+---
+
+## Why do we need Object Relational Model (ORM)?
+
+1. You have to write raw SQL quries
+2. Migrations are hard
+3. You don't get best types
+
+ORMs provides automated mirgartions means that, your DB changes very often, you add more columns, add new tables, you have to do MIGRATIONS to keep syncing the DB state.
+In the pre-OMR days we as an application developer have to manually update the production DB and the development DB also there are no logs of the changes made to the DB
+
+##  Benifits of Using ORMs
+1. **Simplified Database Interaction**: ORMs abstract away the complexities of interacting with databases directly, allowing developers to work with objects and classes instead of SQL queries.
+2. **Portability**: ORMs provide a layer of abstraction that allows developers to write code that is independent of the specific database vendor. This makes it easier to switch databases without major code changes.
+3. **Productivity**: By eliminating the need to write repetitive SQL queries, ORMs can increase development speed and productivity. Developers can focus more on the application logic rather than on database operations.
+4. **Reduced Code Duplication**: ORMs help reduce the amount of boilerplate code needed to map objects to database tables, reducing code duplication and simplifying maintenance.
+5. **Object-Oriented Approach**: ORMs allow developers to work with object-oriented principles, making it easier to translate business logic directly into code. This can lead to cleaner and more maintainable code.
+6. **Type Safety**: ORMs often provide type safety, allowing developers to catch errors at compile time rather than runtime, improving code quality.
+7. **Automatic Query Generation**: ORMs can generate complex SQL queries automatically, reducing the chances of SQL injection attacks and other security vulnerabilities.
+8. **Relationship Mapping**: ORMs simplify the management of relationships between objects in the database, making it easier to work with complex data models.
+9. **Built-in Caching**: Some ORMs come with built-in caching mechanisms that can help improve performance by reducing the number of database queries sent to the server.
+
+## What is Prisma ORM?
+
+Prisma ORM is an open-source next-generation ORM. It consists of the following parts:
+- **Prisma Client:** Auto-generated and type-safe query builder for Node.js & TypeScript
+- **Prisma Migrate:** Migration System
+- **Prisma Studio:** GUI to view and edit data in your database.
+## What is Data Modeling?
+
+**Data Modeling is the process of defining the data requirements and structures of a system.** It is used to define the data model for a database.
+In Prisma, this usually involves describing the database schema, including tables, fields, data types, and their relationships. Effective data modeling in Prisma is crucial because it forms the foundation that your database operations and queries are built, and it ensures that data is structured efficiently, accurately, and in a way that aligns with the needs of the application.
+## Prisma Schema
+
+The Prisma schema is where you define your data model. It is written in the Prisma schema language. The Prisma schema language is a declarative language that allows you to define your data model and the relationships between your models. It is similar to GraphQL SDL.
+
+The Prisma schema is made up of 3 parts:
+- **Datasource** - The datasource block is where you define your database connection. You can use any database that Prisma supports. This includes PostgreSQL, MySQL, SQLite, and MongoDB.
+- **Generator** - The generator block is where you define the Prisma Client generator. This is what generates the Prisma Client for you. You can use any language that Prisma supports. This includes JavaScript, TypeScript, Go, and Rust.
+- **Model** - The model block is where you define your data model. This is where you define your models and their fields. You can also define relationships between your models.
+## Migration
+
+A migration is a way to update your database schema. It is a way to keep your database schema in sync with your Prisma schema. 
+
+We can run a migration by running:
+```
+npx prisma migrate dev --name init
+```
+This command creates a new migration and runs it. The `--name` flag allows us to give our migration a name. This is optional. If you don't provide a name, Prisma will generate one for you.
+
+
+## Prisma Basics
+- Every single model inside prisma schema should contains `id` 
+
+```js
+//Basic prisma client code
+import { PrismaClient } from '@prisma/client'
+
+const prisma = new PrismaClient()
+
+async function main(){
+  // ... you will write your Prisma Client queires here
+}
+
+main()
+  .catch(e => {
+    console.error(e.message)
+  })
+  .finally(async () => {
+    await prisma.$disconnect()
+  })
+```
+
+
+- In prisma there are two types of attributes
+	- Field Level : They are on same line of the field and contains a single `@` symbol.
+	- Block Level : It is inside your model on its specific line and contains `@@` symbol.
+		- They are `@@unique`, `@@index`, `@@map`, `@@ignore`, `@@id`
+
