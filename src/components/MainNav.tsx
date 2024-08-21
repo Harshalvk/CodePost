@@ -53,7 +53,7 @@ const posts: { title: string; href: string; description: string }[] = [
   },
 ];
 
-export function MainNav({ className }: { className: string }) {
+export function MainNav({ className }: { className?: string }) {
   return (
     <div
       className={cn(
