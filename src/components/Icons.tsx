@@ -1,9 +1,18 @@
-import { Check, TerminalSquare, Rss, ArrowRight, type Icon as LucideIcon } from "lucide-react";
+import {
+  TerminalSquare,
+  Rss,
+  ArrowRight,
+  Twitter,
+  type Icon as LucideIcon,
+  Github,
+} from "lucide-react";
 
 export type Icon = typeof LucideIcon;
 
 export const Icons = {
   logo: TerminalSquare,
   rss: Rss,
-  arrowRight: ArrowRight
+  arrowRight: ArrowRight,
+  twitter: Twitter,
+  github: Github,
 };
