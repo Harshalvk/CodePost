@@ -1,6 +1,6 @@
 export const POSTS: { title: string; href: string; description: string }[] = [
   {
-    title: "Learn React.js",
+    title: "React.js",
     href: "/blog/react",
     description: "Learn React.js & Next.js in simple and efficient way.",
   },
@@ -10,19 +10,19 @@ export const POSTS: { title: string; href: string; description: string }[] = [
     description: "Learn what's are new in the javascript world.",
   },
   {
-    title: "CSS Flexbox",
+    title: "CSS",
     href: "/blog/css-flexbox",
     description:
       "Master CSS Flexbox to create responsive and flexible layouts.",
   },
   {
-    title: "TypeScript Basics",
+    title: "TypeScript",
     href: "/blog/typescript",
     description:
       "Get started with TypeScript and enhance your JavaScript coding skills.",
   },
   {
-    title: "Node.js Fundamentals",
+    title: "Node.js",
     href: "/blog/nodejs",
     description: "Understand the core concepts of Node.js.",
   },
