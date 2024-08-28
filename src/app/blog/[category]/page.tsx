@@ -4,10 +4,11 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Container from "@/components/Container";
 import CardCategory from "@/components/CardCategory";
+import Header from "@/components/Header";
 
 const page = ({ params }: { params: { category: string } }) => {
   let posts = getBlogPosts().filter(
-    (post) => post.metadata.category === params.category 
+    (post) => post.metadata.category === params.category
   );
 
   if (!posts) {
@@ -16,6 +17,14 @@ const page = ({ params }: { params: { category: string } }) => {
 
   return (
     <>
+      <Header>
+        <Container>
+          <h1 className="title font-semibold text-2xl tracking-wider mt-4 capitalize">
+            {params.category}
+          </h1>
+        </Container>
+      </Header>
+
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
           {posts
