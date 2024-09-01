@@ -11,7 +11,7 @@ const page = ({ params }: { params: { category: string } }) => {
     (post) => post.metadata.category === params.category
   );
 
-  if (!posts) {
+  if (!posts.length) {
     notFound();
   }
 
@@ -20,7 +20,7 @@ const page = ({ params }: { params: { category: string } }) => {
       <Header>
         <Container>
           <h1 className="title font-semibold text-2xl tracking-wider mt-4 capitalize">
-            {params.category}
+            {posts[0]?.metadata.category}
           </h1>
         </Container>
       </Header>
