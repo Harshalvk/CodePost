@@ -2,21 +2,23 @@
 title: "Learn tRPC in 2024"
 publishedAt: "2024-06-13"
 summary: "Learn tRPC, to make your dev journey more peace full."
-category: "web"
+category: "react"
 ---
 
 ## Three steps to write backend in tRPC
+
 1. initialize tRPC
 2. Define your router
 3. Use the adapter to server the API
 
 When initializing your router, tRPC allows your to:
+
 - Setup request context
 - Assign metadata to procedures
 - Format and handle errors
 - Transform data as needed
 - Customize the runtime config
-You can use method chaining to customize your `t` object on initialization 
+  You can use method chaining to customize your `t` object on initialization
 
 - When your control reachs to your final handler, it will gives access to `context` which usually contains the `id` or `session` of the user who's calling to it.
 - `context` can be also defined as, it is basically request specific information things like, whether the user is logged in or not, and etc.
@@ -24,11 +26,14 @@ You can use method chaining to customize your `t` object on initialization
 - Setting up the context is done in 2 steps, defining the type during initialization and then creating the runtime context for each request.
 
 ## Why to store database information in tRPC context?
-While storing database information like models, schemas, & some user information etc. inside the tRPC context, tRPC context then allows you to give freedom to write tests without making database calls also allows you to access the information form the headers. Also if you want to change the ORM to a different ORM by adding the models or schema inside the context you then only have to change the implementation of those ORM only once and the changes will occur everywhere inside your code as soon as you implement the ORM similar to each others. 
+
+While storing database information like models, schemas, & some user information etc. inside the tRPC context, tRPC context then allows you to give freedom to write tests without making database calls also allows you to access the information form the headers. Also if you want to change the ORM to a different ORM by adding the models or schema inside the context you then only have to change the implementation of those ORM only once and the changes will occur everywhere inside your code as soon as you implement the ORM similar to each others.
 
 ## How to Promisify a async function that doesn't supports a promise?
-Find the answer. 
+
+Find the answer.
 
 ## Difference between Context and Middleware
+
 - Context: It is used to extract a lot of information from the request
-- Middleware: It is used to stop a request from reaching to certain step if a certain condtition didn't 
+- Middleware: It is used to stop a request from reaching to certain step if a certain condtition didn't
