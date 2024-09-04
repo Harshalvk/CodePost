@@ -29,6 +29,11 @@ const page = ({ params }: { params: { category: string; slug: string } }) => {
           </div>
         </Container>
       </Header>
+      <Container>
+        <article className="prose">
+          <CustomMDX />
+        </article>
+      </Container>
     </>
   );
 };
