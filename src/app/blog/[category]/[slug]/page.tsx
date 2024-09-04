@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Container from "@/components/Container";
 import { BreadcrumbWithCustomSeparator } from "@/components/Breadcrumb";
+import CustomMDX from "@/components/MDX";
 
 const page = ({ params }: { params: { category: string; slug: string } }) => {
   let post = getBlogPosts().find((post) => post.slug === params.slug);
@@ -31,7 +32,7 @@ const page = ({ params }: { params: { category: string; slug: string } }) => {
       </Header>
       <Container>
         <article className="prose">
-          <CustomMDX />
+          <CustomMDX source={post.content} />
         </article>
       </Container>
     </>
