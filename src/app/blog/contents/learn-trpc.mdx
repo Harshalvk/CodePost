@@ -25,6 +25,13 @@ When initializing your router, tRPC allows your to:
 - Your `context` holds data that all of your tRPC procedures will have access to, and it is a greate place to put things like database connection or authentication information.
 - Setting up the context is done in 2 steps, defining the type during initialization and then creating the runtime context for each request.
 
+```js
+type User = { id: string; name: string; };
+userList: () => User[];
+userById: (id: string) => User;
+userCreate: (data: { name: string }) => User;
+```
+
 ## Why to store database information in tRPC context?
 
 While storing database information like models, schemas, & some user information etc. inside the tRPC context, tRPC context then allows you to give freedom to write tests without making database calls also allows you to access the information form the headers. Also if you want to change the ORM to a different ORM by adding the models or schema inside the context you then only have to change the implementation of those ORM only once and the changes will occur everywhere inside your code as soon as you implement the ORM similar to each others.
@@ -37,3 +44,15 @@ Find the answer.
 
 - Context: It is used to extract a lot of information from the request
 - Middleware: It is used to stop a request from reaching to certain step if a certain condtition didn't
+
+```js
+import { db } from "./db";
+import { publicProcedure, router } from "./trpc";
+const appRouter = router({
+  userList: publicProcedure.query(async () => {
+    // Retrieve users from a datasource, this is an imaginary database
+    const users = await db.user.findMany();
+    return users;
+  }),
+});
+```
