@@ -6,6 +6,14 @@ import Container from "@/components/Container";
 import CardCategory from "@/components/CardCategory";
 import Header from "@/components/Header";
 
+export const generateStaticParams = async () => {
+  let posts = getBlogPosts();
+
+  return posts.map((post) => ({
+    category: post.metadata.category,
+  }));
+};
+
 const page = ({ params }: { params: { category: string } }) => {
   let posts = getBlogPosts().filter(
     (post) => post.metadata.category === params.category
