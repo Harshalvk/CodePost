@@ -1,18 +1,28 @@
-import { popularPosts } from "@/lib/placeholderData";
+"use client";
 import React from "react";
 import { Icons } from "../Icons";
+import useSWR from "swr";
+import { fetcher, fetchUrl } from "@/lib/utils";
+import Link from "next/link";
 
 const PopularPosts = () => {
+  const { data, error, isLoading } = useSWR(fetchUrl, fetcher);
+
+  if (error) return <div>Failed to load</div>;
+  if (isLoading) return <div>Loading</div>;
+
   return (
     <ul className="overflow-auto">
-      {popularPosts.map((post) => (
-        <li
-          key={post.title}
-          className="flex items-center gap-2 group cursor-pointer p-2"
-        >
-          <Icons.arrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform" />
-          <p>{post.title}</p>
-        </li>
+      {data?.map((post: { category: string; slug: string; title: string }) => (
+        <Link href={`/blog/${post.category}/${post.slug}`} key={post.title}>
+          <li
+            key={post.title}
+            className="flex items-center gap-2 group cursor-pointer p-2"
+          >
+            <Icons.arrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform" />
+            <p>{post.title}</p>
+          </li>
+        </Link>
       ))}
     </ul>
   );
