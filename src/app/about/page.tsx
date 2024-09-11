@@ -37,9 +37,9 @@ const page = async () => {
             </p>
           </div>
           <p className="text-muted-foreground text-lg py-4">
-            I'm a passionate Computer Science student excited about technology
-            and innovation. I’m eager to dive into full-stack web development
-            and enjoy working with others to brainstorm and create new ideas.
+            I am a passionate Computer Science student excited about technology
+            and innovation. I am eager to dive into full-stack web development and
+            enjoy working with others to brainstorm and create new ideas.
           </p>
         </div>
       </div>

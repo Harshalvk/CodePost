@@ -30,6 +30,11 @@ export const getBlogPosts = () => {
   return getMDXData(path.join(process.cwd(), "src", "app", "blog", "contents"));
 };
 
+export const getTermsOfServices = () => {
+  return getMDXData(
+    path.join(process.cwd(), "src", "app", "terms-of-services")
+  );
+};
 
 export const formatDate = (date: string, includeRelative = false) => {
   let currentDate = new Date();
