@@ -36,6 +36,12 @@ export const getTermsOfServices = () => {
   );
 };
 
+export const getPrivacyPolicy = () => {
+  return getMDXData(
+    path.join(process.cwd(), "src", "app", "privacy-policy")
+  );
+};
+
 export const formatDate = (date: string, includeRelative = false) => {
   let currentDate = new Date();
   if (!date.includes("T")) {
