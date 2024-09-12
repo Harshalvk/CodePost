@@ -14,6 +14,19 @@ export const generateStaticParams = async () => {
   }));
 };
 
+export const generateMetadata = ({
+  params,
+}: {
+  params: { category: string };
+}) => {
+  let { category } = params;
+
+  return {
+    title: category.toUpperCase(),
+    description: `All articles regarding ${category}`,
+  };
+};
+
 const page = ({ params }: { params: { category: string } }) => {
   let posts = getBlogPosts().filter(
     (post) => post.metadata.category === params.category
