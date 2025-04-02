@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const page = async () => {
   return (
     <>
-      <div className="bg-gray-100 dark:bg-gray-800">
+      <div className="bg-zinc-100 dark:bg-zinc-900">
         <Container>
           <MainNav />
           <Header>

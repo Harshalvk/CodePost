@@ -5,7 +5,7 @@ import React from "react";
 const BlogLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <div className="bg-gray-100 dark:bg-gray-800">
+      <div className="bg-zinc-100 dark:bg-zinc-900">
         <Container>
           <MainNav />
         </Container>

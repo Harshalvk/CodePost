@@ -12,7 +12,7 @@ const Footer = () => {
   const initialState = { message: "", errors: {} };
   const [state, dispatch] = useFormState(createSubscriber, initialState);
   return (
-    <footer className="bg-gray-100 py-8 dark:bg-gray-800 mt-10">
+    <footer className="bg-zinc-100 py-8 dark:bg-zinc-900 mt-10">
       <div className="container mx-auto px-4 lg:px-6">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
           <div className="space-y-4">
@@ -134,7 +134,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="mt-8 border-t border-gray-200 pt-4 text-center text-xs text-gray-500 dark:border-gray-700 dark:text-gray-400">
-          &copy; 2024 Harshal Khobragade. All rights reserved.
+          &copy; 2025 Harshal Khobragade. All rights reserved.
         </div>
       </div>
     </footer>
